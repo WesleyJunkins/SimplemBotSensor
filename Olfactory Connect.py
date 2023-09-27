@@ -70,14 +70,14 @@ def getStarted():
 
     time.sleep(1)
 
-    # while ((not cyberpi.controller.is_press("middle")) and (stopRobot == False)):
     while (stopRobot == False):
+        cyberpi.display.clear()
+        distanceOfPlayer = ultrasonic2.get(index = 1)
+        lastDistance = 0
+        deltaDistance = distanceOfPlayer - lastDistance
 
-        # while (((not cyberpi.controller.is_press("a"))) and (stopRobot == False)):
         while (stopRobot == False):
-            cyberpi.display.clear()
             distanceOfPlayer = ultrasonic2.get(index = 1)
-            lastDistance = 0
 
             #Speed 1 (Player is closest)
             if ((distanceOfPlayer > 5) and (distanceOfPlayer < 11) and (stopRobot == False)):
@@ -86,9 +86,11 @@ def getStarted():
                 speedText.configure(text="6")
                 speedText.configure(fg_color="white")
                 closenessBar.set(0.2)
-                compiledLIST.append({"Current_Time": datetime.now(), "Distance_From_Fan_mm": distanceOfPlayer, "Closeness_Score": "1: Closest", "Delta_Distance": (distanceOfPlayer - lastDistance), "Fan_Speed": 10})
-                distanceOfPlayer = ultrasonic2.get(index = 1)
+                deltaDistance = distanceOfPlayer - lastDistance
+                if((deltaDistance < 30) and (deltaDistance > -30)):
+                    compiledLIST.append({"Current_Time": datetime.now(), "Distance_From_Fan_mm": distanceOfPlayer, "Closeness_Score": "1: Closest", "Delta_Distance": deltaDistance, "Fan_Speed": 10})
                 lastDistance = distanceOfPlayer
+                distanceOfPlayer = ultrasonic2.get(index = 1)
             
             #Speed 2
             if ((distanceOfPlayer > 10) and (distanceOfPlayer < 21) and (stopRobot == False)):
@@ -97,9 +99,11 @@ def getStarted():
                 speedText.configure(text="10")
                 speedText.configure(fg_color="yellow")
                 closenessBar.set(0.4)
-                compiledLIST.append({"Current_Time": datetime.now(), "Distance_From_Fan_mm": distanceOfPlayer, "Closeness_Score": "2: Very Close", "Delta_Distance": (distanceOfPlayer - lastDistance), "Fan_Speed": 20})
-                distanceOfPlayer = ultrasonic2.get(index = 1)
+                deltaDistance = distanceOfPlayer - lastDistance
+                if((deltaDistance < 30) and (deltaDistance > -30)):
+                    compiledLIST.append({"Current_Time": datetime.now(), "Distance_From_Fan_mm": distanceOfPlayer, "Closeness_Score": "2: Very Close", "Delta_Distance": deltaDistance, "Fan_Speed": 20})
                 lastDistance = distanceOfPlayer
+                distanceOfPlayer = ultrasonic2.get(index = 1)
 
             #Speed 3
             if ((distanceOfPlayer > 21) and (distanceOfPlayer < 31) and (stopRobot == False)):
@@ -108,9 +112,11 @@ def getStarted():
                 speedText.configure(text="20")
                 speedText.configure(fg_color="yellow")
                 closenessBar.set(0.6)
-                compiledLIST.append({"Current_Time": datetime.now(), "Distance_From_Fan_mm": distanceOfPlayer, "Closeness_Score": "3: Medium", "Delta_Distance": (distanceOfPlayer - lastDistance), "Fan_Speed": 40})
-                distanceOfPlayer = ultrasonic2.get(index = 1)
+                deltaDistance = distanceOfPlayer - lastDistance
+                if((deltaDistance < 30) and (deltaDistance > -30)):
+                    compiledLIST.append({"Current_Time": datetime.now(), "Distance_From_Fan_mm": distanceOfPlayer, "Closeness_Score": "3: Medium", "Delta_Distance": deltaDistance, "Fan_Speed": 40})
                 lastDistance = distanceOfPlayer
+                distanceOfPlayer = ultrasonic2.get(index = 1)
 
             #Speed 4
             if ((distanceOfPlayer > 31) and (distanceOfPlayer < 41) and (stopRobot == False)):
@@ -119,9 +125,11 @@ def getStarted():
                 speedText.configure(text="40")
                 speedText.configure(fg_color="orange")
                 closenessBar.set(0.8)
-                compiledLIST.append({"Current_Time": datetime.now(), "Distance_From_Fan_mm": distanceOfPlayer, "Closeness_Score": "4: Pretty Far", "Delta_Distance": (distanceOfPlayer - lastDistance), "Fan_Speed": 60})
-                distanceOfPlayer = ultrasonic2.get(index = 1)
+                deltaDistance = distanceOfPlayer - lastDistance
+                if((deltaDistance < 30) and (deltaDistance > -30)):
+                    compiledLIST.append({"Current_Time": datetime.now(), "Distance_From_Fan_mm": distanceOfPlayer, "Closeness_Score": "4: Pretty Far", "Delta_Distance": deltaDistance, "Fan_Speed": 60})
                 lastDistance = distanceOfPlayer
+                distanceOfPlayer = ultrasonic2.get(index = 1)
 
             #Speed 5 (Player is furthest)
             if ((distanceOfPlayer > 40) and (distanceOfPlayer < 100) and (stopRobot == False)):
@@ -130,9 +138,11 @@ def getStarted():
                 speedText.configure(text="60")
                 speedText.configure(fg_color="red")
                 closenessBar.set(1)
-                compiledLIST.append({"Current_Time": datetime.now(), "Distance_From_Fan_mm": distanceOfPlayer, "Closeness_Score": "5: Furthest", "Delta_Distance": (distanceOfPlayer - lastDistance), "Fan_Speed": 80})
-                distanceOfPlayer = ultrasonic2.get(index = 1)
+                deltaDistance = distanceOfPlayer - lastDistance
+                if((deltaDistance < 30) and (deltaDistance > -30)):
+                    compiledLIST.append({"Current_Time": datetime.now(), "Distance_From_Fan_mm": distanceOfPlayer, "Closeness_Score": "5: Furthest", "Delta_Distance": deltaDistance, "Fan_Speed": 80})
                 lastDistance = distanceOfPlayer
+                distanceOfPlayer = ultrasonic2.get(index = 1)
 
             #Safety (the sensor reads 300 when you get right up next to it. This will disable the fan.)
             if ((distanceOfPlayer > 200) and (distanceOfPlayer < 400) and (stopRobot == False)):
@@ -141,9 +151,12 @@ def getStarted():
                 speedText.configure(text="0")
                 speedText.configure(fg_color="white")
                 closenessBar.set(0)
-                compiledLIST.append({"Current_Time": datetime.now(), "Distance_From_Fan_mm": distanceOfPlayer, "Closeness_Score": "5: Furthest", "Delta_Distance": (distanceOfPlayer - lastDistance), "Fan_Speed": 80})
-                distanceOfPlayer = ultrasonic2.get(index = 1)
+                deltaDistance = distanceOfPlayer - lastDistance
+                if((deltaDistance < 30) and (deltaDistance > -30)):
+                    compiledLIST.append({"Current_Time": datetime.now(), "Distance_From_Fan_mm": distanceOfPlayer, "Closeness_Score": "5: Furthest", "Delta_Distance": deltaDistance, "Fan_Speed": 80})
                 lastDistance = distanceOfPlayer
+                distanceOfPlayer = ultrasonic2.get(index = 1)
+                
 
 #Creates a new thread to handle the robot. Interface runs on the main thread. Creates a new thread each time you click "Start".
 def startGetStartedThread():
