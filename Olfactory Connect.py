@@ -13,7 +13,6 @@ import time, os, csv, customtkinter, threading
 import tkinter as tk
 from cyberpi import *
 from datetime import datetime
-from PIL import Image, ImageTk
 from tkinter import filedialog
 
 #List to hold all data to be written to CSV file.
@@ -156,7 +155,6 @@ def getStarted():
                     compiledLIST.append({"Current_Time": datetime.now(), "Distance_From_Fan_mm": distanceOfPlayer, "Closeness_Score": "5: Furthest", "Delta_Distance": deltaDistance, "Fan_Speed": 80})
                 lastDistance = distanceOfPlayer
                 distanceOfPlayer = ultrasonic2.get(index = 1)
-                
 
 #Creates a new thread to handle the robot. Interface runs on the main thread. Creates a new thread each time you click "Start".
 def startGetStartedThread():
@@ -173,10 +171,6 @@ app.geometry("460x500")
 app.title("Olfactory Connect")
 app.grid_rowconfigure(0, weight=1)
 app.grid_columnconfigure(0, weight=1)
-app.resizable(0,0)
-# ico = Image.open("./Picture1.ico")
-# photo = ImageTk.PhotoImage(ico)
-# app.wm_iconphoto(False, photo)
 
 mainFrame = customtkinter.CTkFrame(master=app, width=900, height=360, fg_color="transparent")
 mainFrame.grid(row=0, column=0, sticky="nsew")
@@ -194,7 +188,7 @@ dashboardFrame.pack()
 distanceFrame = customtkinter.CTkFrame(master=dashboardFrame, width=100, height=100, fg_color="black", corner_radius=4)
 distanceFrame.pack(padx=10, pady=10)
 
-distanceLabel = customtkinter.CTkLabel(distanceFrame, text="Distance: ", fg_color="transparent")
+distanceLabel = customtkinter.CTkLabel(distanceFrame, text="Distance", text_color="white", fg_color="transparent")
 distanceLabel.pack(padx=5, pady=5)
 
 distanceText = customtkinter.CTkLabel(distanceFrame, text="Current Distance", text_color="black", fg_color="white", corner_radius=0, width=100, height=25, font=("railway", 10))
@@ -203,7 +197,7 @@ distanceText.pack(padx=10, pady=10)
 speedFrame = customtkinter.CTkFrame(master=dashboardFrame, width=100, height=100, fg_color="black", corner_radius=4)
 speedFrame.pack(padx=10, pady=10)
 
-speedLabel = customtkinter.CTkLabel(speedFrame, text="Fan Speed: ", fg_color="transparent")
+speedLabel = customtkinter.CTkLabel(speedFrame, text="Fan Speed", text_color="white", fg_color="transparent")
 speedLabel.pack(padx=5, pady=5)
 
 speedText = customtkinter.CTkLabel(speedFrame, text="Current Speed", text_color="black", fg_color="white", corner_radius=0, width=100, height=25, font=("railway", 10))
