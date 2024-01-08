@@ -1,0 +1,4 @@
+([('Olfactory Connect',
+   '/Users/wesleyjunkins/Documents/GitHub/SimplemBotSensor/Untitled/dist/Olfactory '
+   'Connect',
+   'EXECUTABLE')],)

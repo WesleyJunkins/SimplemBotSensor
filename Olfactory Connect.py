@@ -167,7 +167,7 @@ customtkinter.set_appearance_mode("System")
 customtkinter.set_default_color_theme("blue")
 
 app = customtkinter.CTk()
-app.geometry("460x500")
+# app.geometry("460x500")
 app.title("Olfactory Connect")
 app.grid_rowconfigure(0, weight=1)
 app.grid_columnconfigure(0, weight=1)

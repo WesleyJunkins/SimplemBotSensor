@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDisplayName</key>
+	<string>Olfactory Connect</string>
+	<key>CFBundleExecutable</key>
+	<string>Olfactory Connect</string>
+	<key>CFBundleIconFile</key>
+	<string>generated-d68ad5a21458eaa857349e30af1f861ef2f1cd0bdefba3da8406da91e258611d.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>Olfactory Connect</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>Olfactory Connect</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>0.0.0</string>
+	<key>NSHighResolutionCapable</key>
+	<true/>
+</dict>
+</plist>
